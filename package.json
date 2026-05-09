@@ -1,0 +1,29 @@
+{
+  "name": "campus-resource-booking-system",
+  "version": "1.0.0",
+  "description": "campus resource booking system API",
+  "homepage": "https://github.com/sachimav/campus-resource-booking-system#readme",
+  "bugs": {
+    "url": "https://github.com/sachimav/campus-resource-booking-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachimav/campus-resource-booking-system.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
