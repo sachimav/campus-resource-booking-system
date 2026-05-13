@@ -2,6 +2,25 @@
 
 campus resource booking system API
 
+## Problem Description
+Campuses often manage shared resources manually (paper logs, spreadsheets, ad-hoc chats), which causes:
+- Double bookings and time conflicts
+- Lack of visibility into resource availability
+- No centralized access control for students/staff/admins
+- Difficult tracking of booking history
+A centralized digital booking API is needed to streamline scheduling and improve resource utilization.
+---
+## Proposed Solution
+This project provides a RESTful API that allows users to:
+- Register and log in securely
+- View available resources
+- Create and manage bookings
+- Prevent overlapping bookings for the same resource/time slot
+- Manage resources through admin-level operations (can be extended with role-based controls)
+The system uses MongoDB for persistence and Express.js for API routing and business logic.
+
+---
+
 ## API Endpoints
 
 ### Base URL
@@ -9,6 +28,35 @@ campus resource booking system API
 > localhost:8000/api/
 
 ---
+
+### User APIs
+
+Base Path:  
+`/api/auth`
+
+### Register User
+**POST** `/auth/register`
+
+**Body Example:**
+
+```json
+{
+  "name": "Kamal Silva",
+  "email": "kamal@campus.edu",
+  "password": "StrongPass123"
+}
+```
+### User Login
+**POST** `/auth/login`
+
+**Body Example:**
+
+```json
+{
+  "email": "kamal@campus.edu",
+  "password": "StrongPass123"
+}
+```
 
 ### Resources APIs
 
