@@ -132,3 +132,37 @@ Returns a single bookings.
 #### Delete bookings
 
 **DELETE** `/api/bookings/:id`
+
+---
+
+## How Install And Run 
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/sachimav/campus-resource-booking-system.git
+   ```
+
+2. **Navigate to the project directory**
+   ```bash
+   cd campus-resource-booking-system
+   ```
+
+3. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Set up environment variables**
+   Create a `.env` file in the root directory and add the necessary environment variables (e.g., database connection string):
+   ```env
+   PORT=3000
+   MONGO_URI=your_mongodb_connection_string
+   ```
+
+5. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+### Enjoy 😉
+
