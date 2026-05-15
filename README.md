@@ -82,7 +82,7 @@ Returns a single resource.
 ```json
 {
   "name": "Lecture Hall A",
-  "capcity": "Hall",
+  "capcity": "130",
   "location": "applied Building",
   "status": "available"
 }
