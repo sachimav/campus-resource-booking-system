@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import { LogOut, User, Calendar, BookOpen } from 'lucide-react';
+import { LogOut, User, Calendar, BookOpen, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
@@ -33,6 +33,13 @@ const Navbar = () => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           {user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              {user.role === 'admin' && (
+                <Link to="/admin" style={{ fontWeight: 500, transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-primary)' }}
+                  onMouseOver={(e) => e.target.style.color = 'var(--accent-hover)'}
+                  onMouseOut={(e) => e.target.style.color = 'var(--accent-primary)'}>
+                  <Shield size={18} /> Admin Dashboard
+                </Link>
+              )}
               <Link to="/bookings" style={{ fontWeight: 500, transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
                 onMouseOver={(e) => e.target.style.color = 'var(--accent-primary)'}
                 onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>

@@ -21,9 +21,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const res = await axios.post('/api/auth/login', { email, password });
     if (res.data.message === 'Login successful') {
-      // Mock fetching user data, since login doesn't return full user info
-      // We will just store a simple state
-      const userData = { email, loggedIn: true };
+      const userData = { email: res.data.user.email, role: res.data.user.role, loggedIn: true };
       setUser(userData);
       localStorage.setItem('user', JSON.stringify(userData));
       return true;
@@ -31,8 +29,8 @@ export const AuthProvider = ({ children }) => {
     return false;
   };
 
-  const register = async (name, email, password) => {
-    const res = await axios.post('/api/auth/register', { name, email, password });
+  const register = async (name, email, password, role) => {
+    const res = await axios.post('/api/auth/register', { name, email, password, role });
     return res.data;
   };
 

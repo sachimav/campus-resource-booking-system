@@ -8,6 +8,7 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState('');
   const { register } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Register = () => {
     e.preventDefault();
     setError('');
     try {
-      await register(name, email, password);
+      await register(name, email, password, isAdmin ? 'admin' : 'user');
       navigate('/login', { state: { message: 'Registration successful. Please login.' } });
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
@@ -117,6 +118,19 @@ const Register = () => {
                 onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
               />
             </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
+            <input 
+              type="checkbox" 
+              id="isAdmin" 
+              checked={isAdmin}
+              onChange={(e) => setIsAdmin(e.target.checked)}
+              style={{ width: '1rem', height: '1rem', accentColor: 'var(--accent-primary)', cursor: 'pointer' }}
+            />
+            <label htmlFor="isAdmin" style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', cursor: 'pointer' }}>
+              Register as Administrator
+            </label>
           </div>
 
           <button 

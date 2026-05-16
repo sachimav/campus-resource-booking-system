@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import User from "../models/user.js";
 
 export const register = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -10,6 +10,7 @@ export const register = async (req, res) => {
     name,
     email,
     password: hashedPassword,
+    role: role || 'user',
   });
 
   res.json({ message: "User created", user });
@@ -29,7 +30,7 @@ export const login = async (req, res) => {
     role: user.role,
   };
 
-  res.json({ message: "Login successful" });
+  res.json({ message: "Login successful", user: { email: user.email, role: user.role } });
 };
 
 export const logout = (req, res) => {
