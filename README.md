@@ -164,5 +164,14 @@ Returns a single bookings.
    npm start
    ```
 
+## How Run Frontend
+   
+   open another terminal
+
+    ```bash
+   cd frontend 
+   npm run dev
+   ```
+
 ### Enjoy 😉
 
