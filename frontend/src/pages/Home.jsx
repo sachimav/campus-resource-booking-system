@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { MapPin, Users, CheckCircle, Clock, Search } from 'lucide-react';
+import BookingModal from '../components/BookingModal';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ const Home = () => {
   const [resources, setResources] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedResource, setSelectedResource] = useState(null);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -33,12 +35,11 @@ const Home = () => {
     fetchResources();
   }, []);
 
-  const handleBook = (resourceId) => {
+  const handleBook = (resource) => {
     if (!user) {
       navigate('/login', { state: { message: 'Please login first to book a resource.' } });
     } else {
-      // In a full implementation, this would open a booking modal
-      alert(`Booking functionality for resource ${resourceId} would open here.`);
+      setSelectedResource(resource);
     }
   };
 
@@ -176,7 +177,7 @@ const Home = () => {
               </div>
               
               <button
-                onClick={() => handleBook(resource._id)}
+                onClick={() => handleBook(resource)}
                 disabled={resource.status?.toLowerCase() !== 'available'}
                 style={{
                   width: '100%',
@@ -206,6 +207,13 @@ const Home = () => {
           </motion.div>
         ))}
       </motion.div>
+
+      {selectedResource && (
+        <BookingModal 
+          resource={selectedResource} 
+          onClose={() => setSelectedResource(null)} 
+        />
+      )}
     </div>
   );
 };

@@ -32,8 +32,13 @@ const Navbar = () => {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           {user ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <Link to="/bookings" style={{ fontWeight: 500, transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                onMouseOver={(e) => e.target.style.color = 'var(--accent-primary)'}
+                onMouseOut={(e) => e.target.style.color = 'var(--text-primary)'}>
+                <BookOpen size={18} /> My Bookings
+              </Link>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', borderLeft: '1px solid var(--border-color)', paddingLeft: '1.5rem' }}>
                 <User size={18} /> {user.email.split('@')[0]}
               </span>
               <button 
