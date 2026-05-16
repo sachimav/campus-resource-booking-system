@@ -165,11 +165,9 @@ Returns a single bookings.
    ```
 
 ## How Run Frontend
+   open another terminal.
    
-   open another terminal
-
-    ```bash
-   cd frontend 
+   ```bash
    npm run dev
    ```
 
