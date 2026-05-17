@@ -21,6 +21,10 @@ The system uses MongoDB for persistence and Express.js for API routing and busin
 
 ---
 
+ ![alt text](https://github.com/sachimav/campus-resource-booking-system/blob/main/campusBook.png?raw=true)
+ 
+---
+
 ## API Endpoints
 
 ### Base URL
